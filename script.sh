@@ -1,61 +1,12 @@
 #!/bin/bash
-# Estruturas de condição e repetição
-clear
-sleep 3
-echo "Imprime" #IMPRIME
-read VAR #SALVANAVARIAVEL
-################################
-[ ] && echo ""
-################################
-[ ] || echo ""
-################################
-if []; then
 
-fi
-################################
-if [];then
+dialog --title 'Criar Arquivo' 						\
+	--yesno 'Devo criar o arquivo < Yes > ou o arquivo < No >?' 	\
+	7 35
 
-else
-
-fi
-################################
-if []; then
-
-elif []; then
-
-else
-
-fi
-################################
-while []; do
-
-done
-################################
-until [ ]; do
-
-done
-################################
-for X in {1..10}; do
-
-done
-################################
-for (( Y=1; Y<100; Y++ )); do
-
-
-done
-################################
-case VAR in
-	1)
-		echo "Olá Mundo"
-		;;
-	2)
-		echo "Digitei a opção 2"
-		;;
-	[3-13])
-		echo "Vc digitou de 3 a  13"
-		;;
-	*)
-		echo "Vc Digitou outra coisa"
-		;;
+case $? in
+	0) > yes.txt ;;
+	1) > no.txt ;;
+	255) echo "Programa Terminou sem fazer nada"; exit 111 ;;
+	*) echo "Erro não previsto"; exit 123 ;;
 esac
-################################
